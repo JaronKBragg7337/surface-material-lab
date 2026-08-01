@@ -23,6 +23,7 @@
 
 ## Next
 
+- use the mixed urban environment stage to separate scene-ready materials from macro references, structured paver/brick patterns, and hero-surface studies
 - author true map files instead of runtime estimates
 - add source crop and perspective-correction tools
 - add searchable material library and variant inheritance

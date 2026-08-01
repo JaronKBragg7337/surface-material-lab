@@ -12,7 +12,7 @@ The current library contains eighteen reusable cards spanning concrete, brick, w
 
 The live prototype currently supports:
 
-- sidewalk, wall, cube, sphere, cylinder, large-plane, and all-object test stages
+- sidewalk, wall, cube, sphere, cylinder, large-plane, a mixed urban environment, and all-object test stages
 - neutral, overcast, sunlight, and grazing-light inspection presets
 - close-up, medium, and far camera presets with orbit controls
 - final, base-color, roughness estimate, generated normal/relief estimate, height estimate, and UV-checker modes

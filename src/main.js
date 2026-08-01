@@ -80,6 +80,7 @@ app.innerHTML = `
             <option value="sphere">Sphere</option>
             <option value="cylinder">Cylinder</option>
             <option value="large-plane">Large plane / repetition</option>
+            <option value="environment">Urban environment / mixed materials</option>
             <option value="all">Comparison stage / all tests</option>
           </select>
           <div class="inline-status"><span>Mapping</span><strong>UV / normalized</strong></div>
@@ -168,6 +169,7 @@ let activeTexture = getBaseTexture(activeMaterialKey);
 let derivedMaps = null;
 let activeSurfaceMaterial = null;
 let activeGeometryMeshes = [];
+let environmentOwnedTextures = [];
 let currentRuntime = { repeatX: 1, repeatY: 1, activeMapEstimate: true };
 let latestValidation = null;
 let fpsFrames = 0;
@@ -245,6 +247,7 @@ function dimensionsForGeometry(geometry = state.geometry) {
     sphere: { width: 2.5, height: 2.5 },
     cylinder: { width: 2.3, height: 2.7 },
     'large-plane': { width: 14, height: 8 },
+    environment: { width: 18, height: 12 },
     all: { width: 4, height: 2 },
   };
   return dimensions[geometry] ?? dimensions.sidewalk;
@@ -297,6 +300,23 @@ function createSurfaceMaterial() {
   return material;
 }
 
+function createEnvironmentMaterial(key, repeatX, repeatY, overrides = {}) {
+  const config = materialLibrary[key];
+  if (!config) return new THREE.MeshStandardMaterial({ color: '#555b5c', roughness: 0.95 });
+  const texture = configureBaseTexture(textureLoader.load(config.baseColorUrl));
+  texture.repeat.set(repeatX, repeatY);
+  texture.needsUpdate = true;
+  environmentOwnedTextures.push(texture);
+  const material = new THREE.MeshStandardMaterial({
+    color: '#ffffff',
+    map: texture,
+    roughness: overrides.roughness ?? config.card.roughness,
+    metalness: overrides.metalness ?? config.card.metalness,
+  });
+  configureMacroVariation(material);
+  return material;
+}
+
 function disposeStage() {
   stage.traverse((object) => {
     if (object.isMesh) {
@@ -305,6 +325,8 @@ function disposeStage() {
       else object.material?.dispose();
     }
   });
+  environmentOwnedTextures.forEach((texture) => texture.dispose());
+  environmentOwnedTextures = [];
   while (stage.children.length) stage.remove(stage.children[stage.children.length - 1]);
   activeGeometryMeshes = [];
   activeSurfaceMaterial = null;
@@ -380,6 +402,39 @@ function addLargePlane() {
   addSeams(14, 8);
 }
 
+function addEnvironment() {
+  const asphalt = new THREE.Mesh(new THREE.BoxGeometry(18, 0.14, 12), createEnvironmentMaterial('dark-asphalt', 6.5, 4.5, { roughness: 0.92 }));
+  asphalt.position.y = -0.07;
+  asphalt.receiveShadow = true;
+  stage.add(asphalt);
+
+  const sidewalk = new THREE.Mesh(new THREE.BoxGeometry(12, 0.24, 3.1), createEnvironmentMaterial('concrete-slab', 5.5, 1.4));
+  sidewalk.position.set(0, 0.12, 2.55);
+  sidewalk.castShadow = true;
+  sidewalk.receiveShadow = true;
+  stage.add(sidewalk);
+
+  const paverPatch = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.16, 2.45), createEnvironmentMaterial('red-brick-pavers', 2.7, 1.5));
+  paverPatch.position.set(-3.65, 0.32, 2.55);
+  paverPatch.castShadow = true;
+  paverPatch.receiveShadow = true;
+  stage.add(paverPatch);
+
+  const brickWall = new THREE.Mesh(new THREE.BoxGeometry(9.5, 4.25, 0.28), createEnvironmentMaterial('brick', 3.8, 2.3));
+  brickWall.position.set(0.2, 2.12, -4.3);
+  brickWall.castShadow = true;
+  brickWall.receiveShadow = true;
+  stage.add(brickWall);
+
+  const woodPole = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.43, 3.7, 32), createEnvironmentMaterial('wood', 1.2, 2.8, { roughness: 0.86 }));
+  woodPole.position.set(5.55, 1.85, 0.25);
+  woodPole.castShadow = true;
+  woodPole.receiveShadow = true;
+  stage.add(woodPole);
+
+  addTexturedMesh(new THREE.BoxGeometry(3.2, 0.34, 2.1), [1.15, 0.49, 0.92], [0, 0, 0], 'environment-active-sample');
+}
+
 function addComparisonStage() {
   addRoad();
   const comparisonMaterial = activeSurfaceMaterial;
@@ -403,6 +458,7 @@ function rebuildStage() {
   if (state.geometry === 'sidewalk') { addRoad(); addSidewalk(); }
   else if (state.geometry === 'wall') addWall();
   else if (state.geometry === 'large-plane') addLargePlane();
+  else if (state.geometry === 'environment') addEnvironment();
   else if (state.geometry === 'all') addComparisonStage();
   else addPrimitive(state.geometry);
   buildRuler();
@@ -627,7 +683,7 @@ function setMaterial(value) {
 }
 
 function setGeometry(value) {
-  const options = ['sidewalk', 'wall', 'cube', 'sphere', 'cylinder', 'large-plane', 'all'];
+  const options = ['sidewalk', 'wall', 'cube', 'sphere', 'cylinder', 'large-plane', 'environment', 'all'];
   const normalized = normalizedValue(value);
   const match = options.find((option) => normalizedValue(option) === normalized);
   if (!match) throw new Error(`Unknown geometry: ${value}`);
@@ -677,6 +733,7 @@ async function executeCommand(source) {
     return;
   }
   if (verb === 'GEOMETRY') return setGeometry(argument);
+  if (verb === 'ENVIRONMENT') return setGeometry('environment');
   if (verb === 'LIGHT') return setLighting(argument);
   if (verb === 'CAMERA') return setCamera(argument);
   if (verb === 'SHOW') return setChannel(argument);
