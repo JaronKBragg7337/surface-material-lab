@@ -22,6 +22,62 @@
       "category": "wood",
       "status": "prototype",
       "packagePath": "materials/wood/weathered-pole-001"
+    },
+    {
+      "id": "MAT-CONCRETE-0002",
+      "name": "Fine Concrete Slab",
+      "category": "concrete",
+      "status": "prototype",
+      "packagePath": "materials/concrete/concrete-slab-002"
+    },
+    {
+      "id": "MAT-ROCK-0001",
+      "name": "Mixed Rock Soil Ground",
+      "category": "rock",
+      "status": "prototype",
+      "packagePath": "materials/rock/mixed-rock-soil-001"
+    },
+    {
+      "id": "MAT-CONCRETE-0003",
+      "name": "Concrete Pavers A",
+      "category": "concrete",
+      "status": "prototype",
+      "packagePath": "materials/concrete/concrete-pavers-a-001"
+    },
+    {
+      "id": "MAT-CONCRETE-0004",
+      "name": "Concrete Pavers B",
+      "category": "concrete",
+      "status": "prototype",
+      "packagePath": "materials/concrete/concrete-pavers-b-001"
+    },
+    {
+      "id": "MAT-BARK-0001",
+      "name": "Lichen Bark",
+      "category": "bark",
+      "status": "prototype",
+      "packagePath": "materials/bark/lichen-bark-001"
+    },
+    {
+      "id": "MAT-CONCRETE-0005",
+      "name": "Scored Concrete Pavers",
+      "category": "concrete",
+      "status": "prototype",
+      "packagePath": "materials/concrete/scored-concrete-001"
+    },
+    {
+      "id": "MAT-BRICK-0002",
+      "name": "Red Brick Pavers",
+      "category": "brick",
+      "status": "prototype",
+      "packagePath": "materials/brick/red-brick-pavers-001"
+    },
+    {
+      "id": "MAT-BRICK-0003",
+      "name": "Rough Tan Brick Pavers",
+      "category": "brick",
+      "status": "prototype",
+      "packagePath": "materials/brick/rough-brick-pavers-001"
     }
   ]
 }

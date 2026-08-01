@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-BRICK-0002",
+  "status": "validation_required",
+  "testedGeometries": ["large-plane"],
+  "testedLighting": ["sunlight"],
+  "testedCameras": ["medium"],
+  "knownLimitations": ["Unverified physical scale", "Pending license confirmation", "Sun and camera shadow contamination", "Estimated derived maps"],
+  "issues": [
+    { "issueId": "MATISS-0900", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0901", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0902", "type": "lighting_contamination", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0903", "type": "missing_normal_map", "severity": "info", "status": "open" }
+  ]
+}

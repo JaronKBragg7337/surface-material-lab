@@ -1,32 +1,16 @@
 {
   "schemaVersion": "0.1.0",
   "materials": [
-    {
-      "materialId": "MAT-CONCRETE-0001",
-      "status": "validation_required",
-      "testedGeometries": ["sidewalk", "wall", "cube", "sphere", "cylinder", "large-plane"],
-      "testedLighting": ["neutral", "overcast", "sunlight", "grazing"],
-      "testedCameras": ["close-up", "medium", "far"],
-      "approvedUseDistances": [],
-      "knownLimitations": ["Provisional source scale", "Estimated derived maps", "Non-seamless source crop"]
-    },
-    {
-      "materialId": "MAT-BRICK-0001",
-      "status": "validation_required",
-      "testedGeometries": ["wall"],
-      "testedLighting": ["neutral"],
-      "testedCameras": ["medium"],
-      "approvedUseDistances": [],
-      "knownLimitations": ["Provisional source scale", "Pending license confirmation", "Estimated derived maps", "Non-seamless source crop"]
-    },
-    {
-      "materialId": "MAT-WOOD-0001",
-      "status": "validation_required",
-      "testedGeometries": ["cylinder"],
-      "testedLighting": ["grazing"],
-      "testedCameras": ["medium"],
-      "approvedUseDistances": [],
-      "knownLimitations": ["Provisional source scale", "Pending license confirmation", "Estimated derived maps", "Directional mapping not validated"]
-    }
+    { "materialId": "MAT-CONCRETE-0001", "status": "validation_required", "testedGeometries": ["sidewalk", "wall", "cube", "sphere", "cylinder", "large-plane"], "testedLighting": ["neutral", "overcast", "sunlight", "grazing"], "testedCameras": ["close-up", "medium", "far"], "approvedUseDistances": [], "knownLimitations": ["Provisional source scale", "Estimated derived maps", "Non-seamless source crop"] },
+    { "materialId": "MAT-BRICK-0001", "status": "validation_required", "testedGeometries": ["wall"], "testedLighting": ["neutral"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Provisional source scale", "Pending license confirmation", "Estimated derived maps", "Non-seamless source crop"] },
+    { "materialId": "MAT-WOOD-0001", "status": "validation_required", "testedGeometries": ["cylinder"], "testedLighting": ["grazing"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Provisional source scale", "Pending license confirmation", "Estimated derived maps", "Directional mapping not validated"] },
+    { "materialId": "MAT-CONCRETE-0002", "status": "validation_required", "testedGeometries": ["sidewalk"], "testedLighting": ["sunlight"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Provisional source scale", "Pending license confirmation", "Estimated derived maps"] },
+    { "materialId": "MAT-ROCK-0001", "status": "validation_required", "testedGeometries": ["large-plane"], "testedLighting": ["overcast"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Mixed ground source", "Low tileability expectation", "Provisional source scale"] },
+    { "materialId": "MAT-CONCRETE-0003", "status": "validation_required", "testedGeometries": ["large-plane"], "testedLighting": ["neutral"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Joint alignment not validated", "Provisional source scale", "Estimated derived maps"] },
+    { "materialId": "MAT-CONCRETE-0004", "status": "validation_required", "testedGeometries": ["large-plane"], "testedLighting": ["overcast"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Joint alignment not validated", "Provisional source scale", "Estimated derived maps"] },
+    { "materialId": "MAT-BARK-0001", "status": "validation_required", "testedGeometries": ["cylinder"], "testedLighting": ["grazing"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Depth-of-field contamination", "Not a proven seamless tile", "Provisional source scale"] },
+    { "materialId": "MAT-CONCRETE-0005", "status": "validation_required", "testedGeometries": ["large-plane"], "testedLighting": ["neutral"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Visible grid repetition", "Provisional source scale", "Estimated derived maps"] },
+    { "materialId": "MAT-BRICK-0002", "status": "validation_required", "testedGeometries": ["large-plane"], "testedLighting": ["sunlight"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Lighting contamination", "Provisional source scale", "Estimated derived maps"] },
+    { "materialId": "MAT-BRICK-0003", "status": "validation_required", "testedGeometries": ["large-plane"], "testedLighting": ["grazing"], "testedCameras": ["medium"], "approvedUseDistances": [], "knownLimitations": ["Strong joint repetition", "Provisional source scale", "Estimated derived maps"] }
   ]
 }

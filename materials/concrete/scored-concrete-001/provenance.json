@@ -1,0 +1,12 @@
+{
+  "materialId": "MAT-CONCRETE-0005",
+  "sourceType": "user_photograph",
+  "sourcePhoto": "7-Photo-7.jpg",
+  "originalFile": "source/original-photo.jpg",
+  "processedFile": "source/crop-source.jpg",
+  "processing": [{ "operation": "crop", "parameters": { "x": 240, "y": 900, "width": 2400, "height": 2400 } }, { "operation": "resize", "parameters": { "outputWidth": 2048, "outputHeight": 2048 } }],
+  "license": "provisional_user_authored",
+  "licenseStatus": "pending_user_confirmation",
+  "realWorldDimensions": { "widthMeters": 1, "heightMeters": 1, "status": "unverified" },
+  "notes": ["Original source is preserved.", "The repeated slab grid and linear scoring remain visible for seam and scale testing."]
+}

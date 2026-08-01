@@ -1,0 +1,12 @@
+{
+  "materialId": "MAT-ROCK-0001",
+  "sourceType": "user_photograph",
+  "sourcePhoto": "3-Photo-3.jpg",
+  "originalFile": "source/original-photo.jpg",
+  "processedFile": "source/crop-source.jpg",
+  "processing": [{ "operation": "crop", "parameters": { "x": 240, "y": 1000, "width": 2400, "height": 2400 } }, { "operation": "resize", "parameters": { "outputWidth": 2048, "outputHeight": 2048 } }],
+  "license": "provisional_user_authored",
+  "licenseStatus": "pending_user_confirmation",
+  "realWorldDimensions": { "widthMeters": 1, "heightMeters": 1, "status": "unverified" },
+  "notes": ["Original source is preserved.", "This is a mixed ground source with soil, rocks, roots, and small organic debris; it is not a clean stone tile."]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-BARK-0001",
+  "status": "validation_required",
+  "testedGeometries": ["cylinder"],
+  "testedLighting": ["grazing"],
+  "testedCameras": ["medium"],
+  "knownLimitations": ["Unverified physical scale", "Pending license confirmation", "Depth of field and foliage retained", "Not a proven seamless tile", "Estimated derived maps"],
+  "issues": [
+    { "issueId": "MATISS-0700", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0701", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0702", "type": "depth_of_field_contamination", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0703", "type": "missing_normal_map", "severity": "info", "status": "open" }
+  ]
+}

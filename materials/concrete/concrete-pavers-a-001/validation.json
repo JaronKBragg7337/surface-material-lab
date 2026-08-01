@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-CONCRETE-0003",
+  "status": "validation_required",
+  "testedGeometries": ["large-plane"],
+  "testedLighting": ["neutral"],
+  "testedCameras": ["medium"],
+  "knownLimitations": ["Unverified physical scale", "Pending license confirmation", "Joint alignment is source-dependent", "Estimated derived maps"],
+  "issues": [
+    { "issueId": "MATISS-0500", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0501", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0502", "type": "joint_alignment_not_validated", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0503", "type": "missing_normal_map", "severity": "info", "status": "open" }
+  ]
+}

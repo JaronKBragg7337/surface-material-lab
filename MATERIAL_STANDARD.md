@@ -9,4 +9,4 @@ Surface Material Lab separates four things:
 
 Every material receives a stable `MAT-*` ID. Every map path is explicit. Missing maps are `null`, never silently substituted. A map derived from a photograph is labeled an estimate until it is replaced by authored or measured data.
 
-The first material is `MAT-CONCRETE-0001`. The system is intentionally independent from game and cinematic repositories.
+The initial material is `MAT-CONCRETE-0001`; the current urban source batch expands the library without changing the stable-card rules. The system is intentionally independent from game and cinematic repositories.

@@ -10,6 +10,7 @@ import woodSourceImage from './assets/wood-source.jpg';
 import { concretePebbleCard, materialCardForExport, materialDefaults } from './materials/concretePebble.js';
 import { brickWallCard, brickWallDefaults } from './materials/brickWall.js';
 import { weatheredWoodCard, weatheredWoodDefaults } from './materials/weatheredWood.js';
+import { urbanBatchMaterials } from './materials/urbanBatch.js';
 import { createDerivedMaps, createMacroTexture } from './lib/derivedMaps.js';
 import { downloadBlob, downloadDataUrl, downloadJson, downloadText } from './lib/downloads.js';
 import { validateMaterial } from './lib/validation.js';
@@ -20,12 +21,14 @@ const materialLibrary = {
   concrete: { key: 'concrete', card: concretePebbleCard, defaults: materialDefaults, baseColorUrl: concreteImage, sourceUrl: sourceImage, name: 'Concrete Pebble' },
   brick: { key: 'brick', card: brickWallCard, defaults: brickWallDefaults, baseColorUrl: brickImage, sourceUrl: brickSourceImage, name: 'Weathered Tan Brick Wall' },
   wood: { key: 'wood', card: weatheredWoodCard, defaults: weatheredWoodDefaults, baseColorUrl: woodImage, sourceUrl: woodSourceImage, name: 'Weathered Wood Pole' },
+  ...urbanBatchMaterials,
 };
 let activeMaterialKey = 'concrete';
 let activeMaterial = materialLibrary[activeMaterialKey];
 let activeCard = activeMaterial.card;
 const state = { ...activeMaterial.defaults };
 const screenshotIndex = [];
+const materialSelectOptions = Object.values(materialLibrary).map(({ key, name }) => `<option value="${key}">${name}</option>`).join('');
 
 app.innerHTML = `
   <div class="app-shell">
@@ -33,7 +36,7 @@ app.innerHTML = `
       <div class="brand-lockup">
         <div class="brand-mark">SM</div>
         <div>
-          <p class="eyebrow">SURFACE LIBRARY / VERTICAL SLICE 01</p>
+          <p class="eyebrow">SURFACE LIBRARY / URBAN SOURCE BATCH 001</p>
           <h1>Surface Material Lab</h1>
         </div>
       </div>
@@ -56,11 +59,7 @@ app.innerHTML = `
             <div class="id-stack"><span class="card-index">01</span><code id="material-id">MAT-CONCRETE-0001</code></div>
           </div>
           <label class="field-label" for="material-select">Material library</label>
-          <select class="select-control" id="material-select">
-            <option value="concrete">Concrete Pebble</option>
-            <option value="brick">Weathered Tan Brick Wall</option>
-            <option value="wood">Weathered Wood Pole</option>
-          </select>
+          <select class="select-control" id="material-select">${materialSelectOptions}</select>
           <div class="source-card">
             <img id="source-preview" src="${sourceImage}" alt="Original material source photograph" />
             <div class="source-card-caption"><span id="source-type">SOURCE / USER PHOTOGRAPH</span><strong id="source-title">Exposed aggregate sidewalk</strong></div>
@@ -152,12 +151,17 @@ function configureBaseTexture(texture) {
   return texture;
 }
 
-const textureLibrary = {
-  concrete: configureBaseTexture(textureLoader.load(concreteImage, () => loadingState.classList.add('is-hidden'))),
-  brick: configureBaseTexture(textureLoader.load(brickImage)),
-  wood: configureBaseTexture(textureLoader.load(woodImage)),
-};
-let activeTexture = textureLibrary[activeMaterialKey];
+const textureLibrary = {};
+function getBaseTexture(key) {
+  if (!textureLibrary[key]) {
+    const config = materialLibrary[key];
+    textureLibrary[key] = configureBaseTexture(textureLoader.load(config.baseColorUrl, () => {
+      if (key === activeMaterialKey) loadingState.classList.add('is-hidden');
+    }));
+  }
+  return textureLibrary[key];
+}
+let activeTexture = getBaseTexture(activeMaterialKey);
 
 let derivedMaps = null;
 let activeSurfaceMaterial = null;
@@ -589,7 +593,7 @@ function setMaterial(value) {
   activeMaterialKey = next.key;
   activeMaterial = next;
   activeCard = next.card;
-  activeTexture = textureLibrary[activeMaterialKey];
+  activeTexture = getBaseTexture(activeMaterialKey);
   Object.assign(state, next.defaults);
   latestValidation = null;
   document.querySelector('#material-select').value = activeMaterialKey;
