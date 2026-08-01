@@ -262,11 +262,17 @@ function configureMacroVariation(material) {
   if (!state.antiTiling || !(material instanceof THREE.MeshStandardMaterial)) return;
   material.onBeforeCompile = (shader) => {
     shader.uniforms.uMacroVariation = { value: macroTexture };
-    shader.fragmentShader = shader.fragmentShader.replace(
-      '#include <map_fragment>',
-      '#include <map_fragment>\n#ifdef USE_MAP\n  float macroValue = texture2D(uMacroVariation, vMapUv * 0.22 + vec2(0.17, 0.31)).r;\n  diffuseColor.rgb *= mix(vec3(0.90), vec3(1.08), macroValue);\n#endif',
-    );
+    shader.fragmentShader = shader.fragmentShader
+      .replace(
+        '#include <common>',
+        '#include <common>\nuniform sampler2D uMacroVariation;',
+      )
+      .replace(
+        '#include <map_fragment>',
+        '#include <map_fragment>\n#ifdef USE_MAP\n  float macroValue = texture2D(uMacroVariation, vMapUv * 0.22 + vec2(0.17, 0.31)).r;\n  diffuseColor.rgb *= mix(vec3(0.90), vec3(1.08), macroValue);\n#endif',
+      );
   };
+  material.customProgramCacheKey = () => 'surface-material-lab-macro-variation-v2';
 }
 
 function createSurfaceMaterial() {
