@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "0.1.0",
+  "catalogId": "SRCSET-URBAN-SURFACES-001",
+  "createdAt": "2026-08-01",
+  "sourceType": "user_photograph",
+  "licenseStatus": "pending_user_confirmation",
+  "realWorldDimensionsStatus": "unmeasured",
+  "intakePath": "materials/intake/urban-surface-set-001/originals",
+  "sources": [
+    { "id": "SRC-CONCRETE-0001", "file": "01-concrete-slab.jpg", "candidateCategories": ["concrete"], "notes": ["Fine aggregate slab", "Contains visible joint at top edge"] },
+    { "id": "SRC-WOOD-0001", "file": "02-weathered-wood.jpg", "candidateCategories": ["wood", "painted_wood"], "notes": ["Strong vertical grain", "Brick and asphalt background present"] },
+    { "id": "SRC-ROCK-0001", "file": "03-mixed-rock-soil.jpg", "candidateCategories": ["rock", "dirt", "gravel"], "notes": ["Mixed stones, soil, roots, and vegetation", "Better for macro ground variation than a clean tile"] },
+    { "id": "SRC-CONCRETE-0002", "file": "04-concrete-pavers-a.jpg", "candidateCategories": ["concrete", "stone"], "notes": ["Large paver pattern", "Mortar or joint lines are part of the source"] },
+    { "id": "SRC-CONCRETE-0003", "file": "05-concrete-pavers-b.jpg", "candidateCategories": ["concrete", "stone"], "notes": ["Fine surface detail", "Joint lines and color variation visible"] },
+    { "id": "SRC-BARK-0001", "file": "06-lichen-bark.jpg", "candidateCategories": ["bark", "mossy_surface"], "notes": ["High-detail bark and lichen", "Depth of field and foliage make it unsuitable as a first seamless tile"] },
+    { "id": "SRC-CONCRETE-0004", "file": "07-scored-concrete-pavers.jpg", "candidateCategories": ["concrete", "paving"], "notes": ["Repeated slab grid", "Useful for scale and seam testing"] },
+    { "id": "SRC-BRICK-0001", "file": "08-red-brick-pavers.jpg", "candidateCategories": ["brick", "paving"], "notes": ["Red and gray brick paver field", "Strong sun/shadow and camera shadow present"] },
+    { "id": "SRC-BRICK-0002", "file": "09-brick-wall.jpg", "candidateCategories": ["brick", "masonry"], "notes": ["Repeated tan brick and mortar", "Promoted to MAT-BRICK-0001"] },
+    { "id": "SRC-BRICK-0003", "file": "10-rough-brick-pavers.jpg", "candidateCategories": ["brick", "stone", "masonry"], "notes": ["Strong macro relief", "Dark joint network is part of the source"] }
+  ]
+}

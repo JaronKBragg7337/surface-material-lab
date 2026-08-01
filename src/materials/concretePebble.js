@@ -69,10 +69,10 @@ export const materialDefaults = {
   variant: 'base',
 };
 
-export function materialCardForExport(state) {
+export function materialCardForExport(state, card = concretePebbleCard) {
   return {
-    ...concretePebbleCard,
-    sourceFiles: concretePebbleCard.sourceFiles.map(({ path }) => path),
+    ...card,
+    sourceFiles: card.sourceFiles.map(({ path }) => path),
     realWorldWidthMeters: state.sourceWidth,
     realWorldHeightMeters: state.sourceHeight,
     updatedAt: new Date().toISOString(),

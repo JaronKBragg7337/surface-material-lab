@@ -17,6 +17,7 @@ export function validateMaterial(card, state, runtime) {
   if (!card.id) issues.push(issue('MATISS-0000', 'missing_material_id', 'critical', 'Stable material ID', 'No material ID is present', ['Assign a stable MAT-* identifier.']));
   if (!card.provenance || !card.provenance.creator) issues.push(issue('MATISS-0001', 'missing_provenance', 'critical', 'Creator and provenance record', 'Provenance is incomplete', ['Record the source creator and capture method.']));
   if (!card.license) issues.push(issue('MATISS-0002', 'missing_license', 'critical', 'Explicit asset license', 'No license recorded', ['Record the actual license before public reuse.']));
+  if (card.provenance?.licenseStatus === 'pending_user_confirmation' || card.license === 'provisional_user_authored') issues.push(issue('MATISS-0014', 'license_confirmation_pending', 'warning', 'Confirmed public asset license', 'The source license is provisional and awaits owner confirmation', ['Confirm the intended public license before distributing the source package.']));
   if (card.normalMap === null) issues.push(issue('MATISS-0003', 'missing_normal_map', 'info', 'Authored normal map or an explicit estimate', 'No authored normal map; runtime estimate is active', ['Replace the estimate with a scanned or authored normal map when available.']));
   if (card.roughnessMap === null) issues.push(issue('MATISS-0004', 'missing_roughness_map', 'info', 'Authored roughness map or an explicit estimate', 'No authored roughness map; runtime estimate is active', ['Replace the estimate with measured roughness data when available.']));
   if (state.sourceWidth <= 0 || state.sourceHeight <= 0) issues.push(issue('MATISS-0005', 'invalid_real_world_scale', 'critical', 'Positive source dimensions in meters', `${state.sourceWidth}m × ${state.sourceHeight}m`, ['Enter the photographed area in meters.']));
@@ -29,6 +30,7 @@ export function validateMaterial(card, state, runtime) {
   if (state.geometry === 'sphere' && !card.curvedSurfaceValidated) issues.push(issue('MATISS-0012', 'curved_surface_not_validated', 'warning', 'Curved surface approval', 'Curved surface use is not validated', ['Check stretching and switch to a world-space projection when needed.']));
   if (state.geometry === 'wall' && !card.verticalSurfaceValidated) issues.push(issue('MATISS-0013', 'vertical_surface_not_validated', 'info', 'Vertical surface approval', 'Vertical surface use is not validated', ['Validate scale and lighting on the wall test.']));
 
+  issues.forEach((item) => { item.materialId = card.id; });
   const warningCount = issues.filter((item) => item.severity === 'warning' || item.severity === 'critical').length;
   return {
     schemaVersion: '0.1.0',

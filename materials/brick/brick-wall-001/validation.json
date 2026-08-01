@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-BRICK-0001",
+  "status": "validation_required",
+  "testedGeometries": ["wall"],
+  "testedLighting": ["neutral"],
+  "testedCameras": ["medium"],
+  "knownLimitations": [
+    "Source dimensions are provisional.",
+    "Normal, roughness, and height channels are runtime estimates.",
+    "The source crop is not seamless.",
+    "Mortar alignment and brick scale need physical confirmation."
+  ],
+  "issues": [
+    { "issueId": "MATISS-0100", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0101", "type": "missing_normal_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0102", "type": "missing_roughness_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0103", "type": "non_seamless_source", "severity": "warning", "status": "open" }
+  ]
+}

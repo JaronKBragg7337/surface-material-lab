@@ -1,10 +1,23 @@
 {
   "schemaVersion": "0.1.0",
-  "materialId": "MAT-CONCRETE-0001",
-  "status": "validation_required",
-  "testedGeometries": ["sidewalk", "wall", "cube", "sphere", "cylinder", "large-plane"],
-  "testedLighting": ["neutral", "overcast", "sunlight", "grazing"],
-  "testedCameras": ["close-up", "medium", "far"],
-  "approvedUseDistances": [],
-  "knownLimitations": ["Provisional source scale", "Estimated derived maps", "Non-seamless source crop"]
+  "materials": [
+    {
+      "materialId": "MAT-CONCRETE-0001",
+      "status": "validation_required",
+      "testedGeometries": ["sidewalk", "wall", "cube", "sphere", "cylinder", "large-plane"],
+      "testedLighting": ["neutral", "overcast", "sunlight", "grazing"],
+      "testedCameras": ["close-up", "medium", "far"],
+      "approvedUseDistances": [],
+      "knownLimitations": ["Provisional source scale", "Estimated derived maps", "Non-seamless source crop"]
+    },
+    {
+      "materialId": "MAT-BRICK-0001",
+      "status": "validation_required",
+      "testedGeometries": ["wall"],
+      "testedLighting": ["neutral"],
+      "testedCameras": ["medium"],
+      "approvedUseDistances": [],
+      "knownLimitations": ["Provisional source scale", "Pending license confirmation", "Estimated derived maps", "Non-seamless source crop"]
+    }
+  ]
 }

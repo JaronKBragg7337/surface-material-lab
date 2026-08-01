@@ -8,6 +8,13 @@
       "category": "concrete",
       "status": "prototype",
       "packagePath": "materials/concrete/concrete-pebble-001"
+    },
+    {
+      "id": "MAT-BRICK-0001",
+      "name": "Weathered Tan Brick Wall",
+      "category": "brick",
+      "status": "prototype",
+      "packagePath": "materials/brick/brick-wall-001"
     }
   ]
 }

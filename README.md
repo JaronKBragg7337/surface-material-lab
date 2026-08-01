@@ -8,7 +8,9 @@ The project is intentionally independent from game and cinematic repositories. I
 
 ## Current vertical slice
 
-The first reusable card is `MAT-CONCRETE-0001`, an exposed-aggregate concrete surface based on the supplied sidewalk photograph. The live prototype currently supports:
+The reusable cards currently include `MAT-CONCRETE-0001` and the second materially different test, `MAT-BRICK-0001`. Both are based on supplied user photographs; the lab keeps the source and processed maps separate.
+
+The live prototype currently supports:
 
 - sidewalk, wall, cube, sphere, cylinder, large-plane, and all-object test stages
 - neutral, overcast, sunlight, and grazing-light inspection presets
@@ -16,6 +18,7 @@ The first reusable card is `MAT-CONCRETE-0001`, an exposed-aggregate concrete su
 - final, base-color, roughness estimate, generated normal/relief estimate, height estimate, and UV-checker modes
 - real-world source dimensions, derived repeat calculation, ruler overlay, and scale references
 - deterministic macro variation and seam/repetition inspection
+- material-library switching between concrete and brick while keeping the same test controls
 - structured validation issues, runtime state JSON, screenshot capture, and ZIP package export
 - touch-friendly controls and low/medium/high preview quality
 
@@ -30,6 +33,8 @@ materials/concrete/concrete-pebble-001/
   variants/     future inherited variant overrides
   previews/     future approved preview captures
   material.json provenance.json validation.json README.md
+materials/brick/brick-wall-001/  second architecture test material
+materials/intake/urban-surface-set-001/  preserved source-photo intake set
 schemas/        JSON Schema for material cards
 src/materials/  runtime material-card definitions
 src/lib/        derived maps, downloads, and validation helpers
@@ -51,7 +56,7 @@ npm run build
 npm run preview
 ```
 
-The original source photo is preserved at `materials/concrete/concrete-pebble-001/source/original-photo.jpg`. The initial app assets in `src/assets/` are kept for the original prototype’s continuity; the material package is the canonical reusable record.
+The original source photos are preserved under the material packages and the intake catalog. The initial app assets in `src/assets/` are kept as optimized runtime previews; the material packages remain the canonical reusable records.
 
 ## AI-readable controls
 

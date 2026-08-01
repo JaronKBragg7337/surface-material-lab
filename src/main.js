@@ -3,14 +3,24 @@ import JSZip from 'jszip';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import concreteImage from './assets/sidewalk-concrete.jpg';
 import sourceImage from './assets/sidewalk-source.jpg';
+import brickImage from './assets/brick-wall.jpg';
+import brickSourceImage from './assets/brick-source.jpg';
 import { concretePebbleCard, materialCardForExport, materialDefaults } from './materials/concretePebble.js';
+import { brickWallCard, brickWallDefaults } from './materials/brickWall.js';
 import { createDerivedMaps, createMacroTexture } from './lib/derivedMaps.js';
 import { downloadBlob, downloadDataUrl, downloadJson, downloadText } from './lib/downloads.js';
 import { validateMaterial } from './lib/validation.js';
 import './style.css';
 
 const app = document.querySelector('#app');
-const state = { ...materialDefaults };
+const materialLibrary = {
+  concrete: { key: 'concrete', card: concretePebbleCard, defaults: materialDefaults, baseColorUrl: concreteImage, sourceUrl: sourceImage, name: 'Concrete Pebble' },
+  brick: { key: 'brick', card: brickWallCard, defaults: brickWallDefaults, baseColorUrl: brickImage, sourceUrl: brickSourceImage, name: 'Weathered Tan Brick Wall' },
+};
+let activeMaterialKey = 'concrete';
+let activeMaterial = materialLibrary[activeMaterialKey];
+let activeCard = activeMaterial.card;
+const state = { ...activeMaterial.defaults };
 const screenshotIndex = [];
 
 app.innerHTML = `
@@ -36,16 +46,21 @@ app.innerHTML = `
       </section>
 
       <aside class="inspector">
-        <section class="panel material-panel">
+      <section class="panel material-panel">
           <div class="panel-heading">
-            <div><p class="eyebrow">MATERIAL CARD</p><h2>Concrete Pebble</h2></div>
-            <div class="id-stack"><span class="card-index">01</span><code>MAT-CONCRETE-0001</code></div>
+            <div><p class="eyebrow">MATERIAL CARD</p><h2 id="material-name">Concrete Pebble</h2></div>
+            <div class="id-stack"><span class="card-index">01</span><code id="material-id">MAT-CONCRETE-0001</code></div>
           </div>
+          <label class="field-label" for="material-select">Material library</label>
+          <select class="select-control" id="material-select">
+            <option value="concrete">Concrete Pebble</option>
+            <option value="brick">Weathered Tan Brick Wall</option>
+          </select>
           <div class="source-card">
-            <img src="${sourceImage}" alt="Original concrete and asphalt reference photograph" />
-            <div class="source-card-caption"><span>SOURCE / USER PHOTOGRAPH</span><strong>Exposed aggregate sidewalk</strong></div>
+            <img id="source-preview" src="${sourceImage}" alt="Original material source photograph" />
+            <div class="source-card-caption"><span id="source-type">SOURCE / USER PHOTOGRAPH</span><strong id="source-title">Exposed aggregate sidewalk</strong></div>
           </div>
-          <p class="material-description">The original photo stays preserved. The lab derives approximate relief and roughness channels at runtime so the source can be tested as a complete material.</p>
+          <p class="material-description" id="material-description">The original photo stays preserved. The lab derives approximate relief and roughness channels at runtime so the source can be tested as a complete material.</p>
           <div class="status-strip"><span id="material-status" class="status-badge status-warning">VALIDATION REQUIRED</span><span id="issue-count">0 issues</span></div>
         </section>
 
@@ -113,7 +128,7 @@ app.innerHTML = `
       </aside>
     </main>
 
-    <footer class="footer-bar"><span><i></i> PUBLIC MATERIAL TEST</span><span>MAT-CONCRETE-0001 · SOURCE MAPS PRESERVED</span><span>Surface Material Lab · 2026</span></footer>
+    <footer class="footer-bar"><span><i></i> PUBLIC MATERIAL TEST</span><span id="footer-material-id">MAT-CONCRETE-0001 · SOURCE MAPS PRESERVED</span><span>Surface Material Lab · 2026</span></footer>
   </div>
 `;
 
@@ -124,11 +139,19 @@ const stage = new THREE.Group();
 const rulerGroup = new THREE.Group();
 const macroTexture = createMacroTexture();
 const textureLoader = new THREE.TextureLoader();
-const concreteTexture = textureLoader.load(concreteImage, () => loadingState.classList.add('is-hidden'));
-concreteTexture.colorSpace = THREE.SRGBColorSpace;
-concreteTexture.wrapS = THREE.RepeatWrapping;
-concreteTexture.wrapT = THREE.RepeatWrapping;
-concreteTexture.anisotropy = 8;
+function configureBaseTexture(texture) {
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.anisotropy = 8;
+  return texture;
+}
+
+const textureLibrary = {
+  concrete: configureBaseTexture(textureLoader.load(concreteImage, () => loadingState.classList.add('is-hidden'))),
+  brick: configureBaseTexture(textureLoader.load(brickImage)),
+};
+let activeTexture = textureLibrary[activeMaterialKey];
 
 let derivedMaps = null;
 let activeSurfaceMaterial = null;
@@ -194,7 +217,7 @@ const cameraPresets = {
 function applyTextureSettings(repeatX, repeatY) {
   currentRuntime.repeatX = repeatX;
   currentRuntime.repeatY = repeatY;
-  const textures = [concreteTexture, derivedMaps?.height, derivedMaps?.normal, derivedMaps?.roughness, derivedMaps?.checker].filter(Boolean);
+  const textures = [activeTexture, derivedMaps?.height, derivedMaps?.normal, derivedMaps?.roughness, derivedMaps?.checker].filter(Boolean);
   textures.forEach((texture) => {
     texture.repeat.set(repeatX, repeatY);
     texture.offset.set(state.antiTiling ? 0.17 : 0, state.antiTiling ? 0.11 : 0);
@@ -236,21 +259,21 @@ function configureMacroVariation(material) {
 
 function createSurfaceMaterial() {
   const channel = state.channel;
-  if (channel === 'base-color') return new THREE.MeshBasicMaterial({ map: concreteTexture });
-  if (channel === 'roughness') return new THREE.MeshBasicMaterial({ map: derivedMaps?.roughness ?? concreteTexture });
-  if (channel === 'normal') return new THREE.MeshBasicMaterial({ map: derivedMaps?.normal ?? concreteTexture });
-  if (channel === 'height') return new THREE.MeshBasicMaterial({ map: derivedMaps?.height ?? concreteTexture });
-  if (channel === 'uv') return new THREE.MeshBasicMaterial({ map: derivedMaps?.checker ?? concreteTexture });
+  if (channel === 'base-color') return new THREE.MeshBasicMaterial({ map: activeTexture });
+  if (channel === 'roughness') return new THREE.MeshBasicMaterial({ map: derivedMaps?.roughness ?? activeTexture });
+  if (channel === 'normal') return new THREE.MeshBasicMaterial({ map: derivedMaps?.normal ?? activeTexture });
+  if (channel === 'height') return new THREE.MeshBasicMaterial({ map: derivedMaps?.height ?? activeTexture });
+  if (channel === 'uv') return new THREE.MeshBasicMaterial({ map: derivedMaps?.checker ?? activeTexture });
 
   const material = new THREE.MeshStandardMaterial({
     color: '#ffffff',
-    map: concreteTexture,
+    map: activeTexture,
     normalMap: derivedMaps?.normal ?? null,
     roughnessMap: derivedMaps?.roughness ?? null,
-    bumpMap: derivedMaps?.height ?? concreteTexture,
+    bumpMap: derivedMaps?.height ?? activeTexture,
     bumpScale: state.bumpStrength,
     roughness: state.roughness,
-    metalness: concretePebbleCard.metalness,
+    metalness: activeCard.metalness,
   });
   configureMacroVariation(material);
   return material;
@@ -429,14 +452,22 @@ function resize() {
 }
 
 function runtimeForValidation() {
-  return { ...currentRuntime, activeMapEstimate: !concretePebbleCard.normalMap || !concretePebbleCard.roughnessMap };
+  return { ...currentRuntime, activeMapEstimate: !activeCard.normalMap || !activeCard.roughnessMap };
 }
 
 function updateReadouts() {
   const repeat = currentRuntime;
   document.querySelector('#world-readout').textContent = `${state.geometry.toUpperCase()} / ${state.channel.toUpperCase()} / ${state.lighting.toUpperCase()}`;
   document.querySelector('#scale-readout').textContent = `SCALE ${Number(state.sourceWidth).toFixed(2)}m × ${Number(state.sourceHeight).toFixed(2)}m · UNVERIFIED`;
-  document.querySelector('#top-status').textContent = `${concretePebbleCard.id} / ${state.geometry.toUpperCase()}`;
+  document.querySelector('#top-status').textContent = `${activeCard.id} / ${state.geometry.toUpperCase()}`;
+  document.querySelector('#material-name').textContent = activeCard.name;
+  document.querySelector('#material-id').textContent = activeCard.id;
+  document.querySelector('#source-preview').src = activeMaterial.sourceUrl;
+  document.querySelector('#source-preview').alt = `${activeCard.name} source photograph`;
+  document.querySelector('#source-title').textContent = activeCard.description;
+  document.querySelector('#source-type').textContent = `SOURCE / ${activeCard.sourceType.replaceAll('_', ' ').toUpperCase()}`;
+  document.querySelector('#material-description').textContent = `${activeCard.description} The original stays preserved; derived relief and roughness channels remain estimates until authored maps replace them.`;
+  document.querySelector('#footer-material-id').textContent = `${activeCard.id} · SOURCE MAPS PRESERVED`;
   document.querySelector('#repeat-value').value = `${Number(state.repeatMultiplier).toFixed(2)}×`;
   document.querySelector('#roughness-value').value = Number(state.roughness).toFixed(2);
   document.querySelector('#bump-value').value = Number(state.bumpStrength).toFixed(2);
@@ -459,9 +490,9 @@ function renderIssueList(report) {
 }
 
 function runValidation(download = false) {
-  latestValidation = validateMaterial(concretePebbleCard, state, runtimeForValidation());
+  latestValidation = validateMaterial(activeCard, state, runtimeForValidation());
   renderIssueList(latestValidation);
-  if (download) downloadJson(latestValidation, `${concretePebbleCard.id}-validation.json`);
+  if (download) downloadJson(latestValidation, `${activeCard.id}-validation.json`);
   return latestValidation;
 }
 
@@ -470,7 +501,7 @@ function getCurrentState() {
   return {
     schemaVersion: '0.1.0',
     generatedAt: new Date().toISOString(),
-    activeMaterial: concretePebbleCard.id,
+    activeMaterial: activeCard.id,
     activeVariant: state.variant,
     geometry: state.geometry,
     lighting: state.lighting,
@@ -489,8 +520,8 @@ function getCurrentState() {
 function captureScreenshot() {
   renderer.render(scene, camera);
   const id = `SHOT-${String(screenshotIndex.length + 1).padStart(4, '0')}`;
-  screenshotIndex.push({ id, materialId: concretePebbleCard.id, geometry: state.geometry, lighting: state.lighting, camera: state.camera, channel: state.channel, capturedAt: new Date().toISOString() });
-  downloadDataUrl(renderer.domElement.toDataURL('image/png'), `${concretePebbleCard.id}-${state.geometry}-${state.channel}.png`);
+  screenshotIndex.push({ id, materialId: activeCard.id, geometry: state.geometry, lighting: state.lighting, camera: state.camera, channel: state.channel, capturedAt: new Date().toISOString() });
+  downloadDataUrl(renderer.domElement.toDataURL('image/png'), `${activeCard.id}-${state.geometry}-${state.channel}.png`);
   downloadJson({ schemaVersion: '0.1.0', screenshots: screenshotIndex }, 'SCREENSHOT_INDEX.json');
   showToast(`${id} captured.`);
 }
@@ -501,15 +532,15 @@ function generatedThreeExample() {
 
 async function exportMaterialPackage() {
   const validation = runValidation(false);
-  const card = materialCardForExport(state);
+  const card = materialCardForExport(state, activeCard);
   const zip = new JSZip();
   zip.file('material.json', JSON.stringify(card, null, 2));
-  zip.file('provenance.json', JSON.stringify({ ...concretePebbleCard.provenance, license: concretePebbleCard.license, sourceType: concretePebbleCard.sourceType }, null, 2));
+  zip.file('provenance.json', JSON.stringify({ ...activeCard.provenance, license: activeCard.license, sourceType: activeCard.sourceType }, null, 2));
   zip.file('validation.json', JSON.stringify(validation, null, 2));
   zip.file('three-material.js', generatedThreeExample());
   zip.file('README.md', `# ${card.id}\n\n${card.description}\n\nThis prototype package includes a real photo base-color map. Normal, height, and roughness channels are runtime estimates and are not included as authored maps.\n\nReal-world source scale: ${state.sourceWidth}m × ${state.sourceHeight}m (unverified).\n`);
-  const sourceBlob = await fetch(sourceImage).then((response) => response.blob());
-  const mapBlob = await fetch(concreteImage).then((response) => response.blob());
+  const sourceBlob = await fetch(activeMaterial.sourceUrl).then((response) => response.blob());
+  const mapBlob = await fetch(activeMaterial.baseColorUrl).then((response) => response.blob());
   zip.file('source/original-photo.jpg', sourceBlob);
   zip.file('source/crop-source.jpg', mapBlob);
   zip.file('maps/base-color.jpg', mapBlob);
@@ -527,6 +558,54 @@ function showToast(message) {
 
 function normalizedValue(value) {
   return value.toLowerCase().replaceAll('-', '').replaceAll('_', '').replaceAll(' ', '');
+}
+
+function loadDerivedMapsForActive() {
+  const requestedKey = activeMaterialKey;
+  loadingState.textContent = `Deriving estimated maps for ${activeCard.name}…`;
+  loadingState.classList.remove('is-hidden', 'is-error');
+  createDerivedMaps(activeMaterial.baseColorUrl).then((maps) => {
+    if (requestedKey !== activeMaterialKey) return;
+    derivedMaps = maps;
+    loadingState.classList.add('is-hidden');
+    rebuildStage();
+  }).catch(() => {
+    if (requestedKey !== activeMaterialKey) return;
+    loadingState.textContent = 'Map estimates unavailable';
+    loadingState.classList.add('is-error');
+    rebuildStage();
+  });
+}
+
+function setMaterial(value) {
+  const next = materialLibrary[value];
+  if (!next) throw new Error(`Unknown material: ${value}`);
+  activeMaterialKey = next.key;
+  activeMaterial = next;
+  activeCard = next.card;
+  activeTexture = textureLibrary[activeMaterialKey];
+  Object.assign(state, next.defaults);
+  latestValidation = null;
+  document.querySelector('#material-select').value = activeMaterialKey;
+  document.querySelector('#geometry-select').value = state.geometry;
+  document.querySelector('#lighting-select').value = state.lighting;
+  document.querySelector('#camera-select').value = state.camera;
+  document.querySelector('#channel-select').value = state.channel;
+  document.querySelector('#quality-select').value = state.quality;
+  document.querySelector('#source-width').value = Number(state.sourceWidth).toFixed(2);
+  document.querySelector('#source-height').value = Number(state.sourceHeight).toFixed(2);
+  document.querySelector('#repeat-range').value = String(state.repeatMultiplier);
+  document.querySelector('#roughness-range').value = String(state.roughness);
+  document.querySelector('#bump-range').value = String(state.bumpStrength);
+  document.querySelector('#seams-button').classList.toggle('is-active', state.seams);
+  document.querySelector('#seams-button').textContent = state.seams ? 'Seams on' : 'Seams off';
+  document.querySelector('#ruler-button').classList.toggle('is-active', state.scaleOverlay);
+  document.querySelector('#ruler-button').textContent = state.scaleOverlay ? 'Ruler on' : 'Ruler off';
+  document.querySelector('#antitiling-button').classList.toggle('is-active', state.antiTiling);
+  document.querySelector('#antitiling-button').textContent = state.antiTiling ? 'Anti-tiling on' : 'Anti-tiling off';
+  derivedMaps = null;
+  rebuildStage();
+  loadDerivedMapsForActive();
 }
 
 function setGeometry(value) {
@@ -573,8 +652,10 @@ async function executeCommand(source) {
   const verb = tokens.shift().toUpperCase();
   const argument = tokens.join(' ');
   if (verb === 'LOAD') {
-    if (tokens[0] !== concretePebbleCard.id) throw new Error(`Unknown material: ${argument}`);
-    showToast(`${concretePebbleCard.id} loaded.`);
+    const material = Object.values(materialLibrary).find(({ card }) => card.id === argument.toUpperCase());
+    if (!material) throw new Error(`Unknown material: ${argument}`);
+    setMaterial(material.key);
+    showToast(`${material.card.id} loaded.`);
     return;
   }
   if (verb === 'GEOMETRY') return setGeometry(argument);
@@ -617,7 +698,7 @@ async function executeCommand(source) {
   if (verb === 'CAPTURE') return captureScreenshot();
   if (verb === 'VALIDATE') return runValidation(true);
   if (verb === 'EXPORT') return exportMaterialPackage();
-  if (verb === 'STATE') return downloadJson(getCurrentState(), `${concretePebbleCard.id}-state.json`);
+  if (verb === 'STATE') return downloadJson(getCurrentState(), `${activeCard.id}-state.json`);
   throw new Error(`Unknown command: ${verb}`);
 }
 
@@ -626,6 +707,7 @@ function bindInput(id, callback) {
   document.querySelector(id).addEventListener('change', callback);
 }
 
+document.querySelector('#material-select').addEventListener('change', (event) => setMaterial(event.target.value));
 document.querySelector('#geometry-select').addEventListener('change', (event) => setGeometry(event.target.value));
 document.querySelector('#lighting-select').addEventListener('change', (event) => setLighting(event.target.value));
 document.querySelector('#camera-select').addEventListener('change', (event) => setCamera(event.target.value));
@@ -643,7 +725,7 @@ bindInput('#fov-range', (event) => { camera.fov = Number(event.target.value); ca
 document.querySelector('#validate-button').addEventListener('click', () => runValidation(true));
 document.querySelector('#capture-button').addEventListener('click', captureScreenshot);
 document.querySelector('#export-button').addEventListener('click', () => void exportMaterialPackage());
-document.querySelector('#state-button').addEventListener('click', () => downloadJson(getCurrentState(), `${concretePebbleCard.id}-state.json`));
+document.querySelector('#state-button').addEventListener('click', () => downloadJson(getCurrentState(), `${activeCard.id}-state.json`));
 document.querySelector('#run-command').addEventListener('click', async () => {
   const input = document.querySelector('#command-input');
   const source = input.value;
@@ -653,15 +735,7 @@ document.querySelector('#run-command').addEventListener('click', async () => {
 });
 document.querySelector('#command-input').addEventListener('keydown', (event) => { if (event.key === 'Enter') document.querySelector('#run-command').click(); });
 
-createDerivedMaps(concreteImage).then((maps) => {
-  derivedMaps = maps;
-  loadingState.classList.add('is-hidden');
-  rebuildStage();
-}).catch(() => {
-  loadingState.textContent = 'Map estimates unavailable';
-  loadingState.classList.add('is-error');
-  rebuildStage();
-});
+loadDerivedMapsForActive();
 
 applyLighting();
 applyCamera();
