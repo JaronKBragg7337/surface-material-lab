@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-CONCRETE-0001",
+  "status": "validation_required",
+  "testedGeometries": ["sidewalk"],
+  "testedLighting": ["neutral"],
+  "testedCameras": ["medium"],
+  "knownLimitations": [
+    "Source dimensions are provisional.",
+    "Normal, roughness, and height channels are runtime estimates.",
+    "The source crop is not seamless.",
+    "Large-surface anti-tiling remains experimental."
+  ],
+  "issues": [
+    {
+      "issueId": "MATISS-0003",
+      "type": "missing_normal_map",
+      "severity": "info",
+      "status": "open"
+    },
+    {
+      "issueId": "MATISS-0006",
+      "type": "unverified_physical_scale",
+      "severity": "warning",
+      "status": "open"
+    },
+    {
+      "issueId": "MATISS-0007",
+      "type": "visible_repetition",
+      "severity": "warning",
+      "status": "open"
+    }
+  ]
+}

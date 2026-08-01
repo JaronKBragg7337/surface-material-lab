@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-CONCRETE-0001",
+  "issues": [
+    { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0007", "type": "visible_repetition", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+  ]
+}

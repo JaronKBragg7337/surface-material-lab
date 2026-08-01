@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "0.1.0",
+  "generatedAt": "2026-08-01",
+  "materials": [
+    {
+      "id": "MAT-CONCRETE-0001",
+      "name": "Concrete Pebble",
+      "category": "concrete",
+      "status": "prototype",
+      "packagePath": "materials/concrete/concrete-pebble-001"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "materialId": "MAT-CONCRETE-0001",
+  "sourceType": "user_photograph",
+  "creator": "user-provided photograph",
+  "originalFile": "source/original-photo.jpg",
+  "processedFile": "source/crop-source.jpg",
+  "processing": [
+    {
+      "operation": "crop",
+      "parameters": { "x": 0, "y": 900, "width": 2880, "height": 2300 }
+    },
+    {
+      "operation": "resize_and_center_crop",
+      "parameters": { "outputWidth": 2048, "outputHeight": 2048 }
+    }
+  ],
+  "license": "CC0-1.0",
+  "licenseStatus": "provisional_user_directed",
+  "realWorldDimensions": {
+    "widthMeters": 1,
+    "heightMeters": 1,
+    "status": "unverified"
+  },
+  "notes": [
+    "The original photograph is preserved without destructive editing.",
+    "The crop removes the dark asphalt edge bands from the source image.",
+    "The dimensions are a provisional working assumption and must be replaced when measured."
+  ]
+}
