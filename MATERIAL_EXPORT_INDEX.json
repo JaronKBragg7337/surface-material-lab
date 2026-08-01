@@ -2,5 +2,5 @@
   "schemaVersion": "0.1.0",
   "exports": [],
   "packageContents": ["material.json", "provenance.json", "validation.json", "three-material.js", "source/", "maps/"],
-  "availableMaterials": ["MAT-CONCRETE-0001", "MAT-BRICK-0001"]
+  "availableMaterials": ["MAT-CONCRETE-0001", "MAT-BRICK-0001", "MAT-WOOD-0001"]
 }

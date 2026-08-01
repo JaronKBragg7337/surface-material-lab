@@ -18,6 +18,16 @@
         { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
         { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
       ]
+    },
+    {
+      "materialId": "MAT-WOOD-0001",
+      "issues": [
+        { "issueId": "MATISS-0014", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
+        { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+        { "issueId": "MATISS-0015", "type": "directional_mapping_not_validated", "severity": "warning", "status": "open" },
+        { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+        { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+      ]
     }
   ]
 }

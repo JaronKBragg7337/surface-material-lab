@@ -8,7 +8,7 @@ The project is intentionally independent from game and cinematic repositories. I
 
 ## Current vertical slice
 
-The reusable cards currently include `MAT-CONCRETE-0001` and the second materially different test, `MAT-BRICK-0001`. Both are based on supplied user photographs; the lab keeps the source and processed maps separate.
+The reusable cards currently include `MAT-CONCRETE-0001`, `MAT-BRICK-0001`, and `MAT-WOOD-0001`. The wood card adds directional grain and cylindrical inspection. All are based on supplied user photographs; the lab keeps source and processed maps separate.
 
 The live prototype currently supports:
 
@@ -18,7 +18,7 @@ The live prototype currently supports:
 - final, base-color, roughness estimate, generated normal/relief estimate, height estimate, and UV-checker modes
 - real-world source dimensions, derived repeat calculation, ruler overlay, and scale references
 - deterministic macro variation and seam/repetition inspection
-- material-library switching between concrete and brick while keeping the same test controls
+- material-library switching between concrete, brick, and wood while keeping the same test controls
 - structured validation issues, runtime state JSON, screenshot capture, and ZIP package export
 - touch-friendly controls and low/medium/high preview quality
 

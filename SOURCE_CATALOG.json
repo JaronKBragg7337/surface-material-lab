@@ -8,7 +8,7 @@
   "intakePath": "materials/intake/urban-surface-set-001/originals",
   "sources": [
     { "id": "SRC-CONCRETE-0001", "file": "01-concrete-slab.jpg", "candidateCategories": ["concrete"], "notes": ["Fine aggregate slab", "Contains visible joint at top edge"] },
-    { "id": "SRC-WOOD-0001", "file": "02-weathered-wood.jpg", "candidateCategories": ["wood", "painted_wood"], "notes": ["Strong vertical grain", "Brick and asphalt background present"] },
+    { "id": "SRC-WOOD-0001", "file": "02-weathered-wood.jpg", "candidateCategories": ["wood", "painted_wood"], "notes": ["Strong vertical grain", "Brick and asphalt background present", "Promoted to MAT-WOOD-0001"] },
     { "id": "SRC-ROCK-0001", "file": "03-mixed-rock-soil.jpg", "candidateCategories": ["rock", "dirt", "gravel"], "notes": ["Mixed stones, soil, roots, and vegetation", "Better for macro ground variation than a clean tile"] },
     { "id": "SRC-CONCRETE-0002", "file": "04-concrete-pavers-a.jpg", "candidateCategories": ["concrete", "stone"], "notes": ["Large paver pattern", "Mortar or joint lines are part of the source"] },
     { "id": "SRC-CONCRETE-0003", "file": "05-concrete-pavers-b.jpg", "candidateCategories": ["concrete", "stone"], "notes": ["Fine surface detail", "Joint lines and color variation visible"] },

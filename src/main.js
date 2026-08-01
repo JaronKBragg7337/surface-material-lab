@@ -5,8 +5,11 @@ import concreteImage from './assets/sidewalk-concrete.jpg';
 import sourceImage from './assets/sidewalk-source.jpg';
 import brickImage from './assets/brick-wall.jpg';
 import brickSourceImage from './assets/brick-source.jpg';
+import woodImage from './assets/wood-weathered.jpg';
+import woodSourceImage from './assets/wood-source.jpg';
 import { concretePebbleCard, materialCardForExport, materialDefaults } from './materials/concretePebble.js';
 import { brickWallCard, brickWallDefaults } from './materials/brickWall.js';
+import { weatheredWoodCard, weatheredWoodDefaults } from './materials/weatheredWood.js';
 import { createDerivedMaps, createMacroTexture } from './lib/derivedMaps.js';
 import { downloadBlob, downloadDataUrl, downloadJson, downloadText } from './lib/downloads.js';
 import { validateMaterial } from './lib/validation.js';
@@ -16,6 +19,7 @@ const app = document.querySelector('#app');
 const materialLibrary = {
   concrete: { key: 'concrete', card: concretePebbleCard, defaults: materialDefaults, baseColorUrl: concreteImage, sourceUrl: sourceImage, name: 'Concrete Pebble' },
   brick: { key: 'brick', card: brickWallCard, defaults: brickWallDefaults, baseColorUrl: brickImage, sourceUrl: brickSourceImage, name: 'Weathered Tan Brick Wall' },
+  wood: { key: 'wood', card: weatheredWoodCard, defaults: weatheredWoodDefaults, baseColorUrl: woodImage, sourceUrl: woodSourceImage, name: 'Weathered Wood Pole' },
 };
 let activeMaterialKey = 'concrete';
 let activeMaterial = materialLibrary[activeMaterialKey];
@@ -55,6 +59,7 @@ app.innerHTML = `
           <select class="select-control" id="material-select">
             <option value="concrete">Concrete Pebble</option>
             <option value="brick">Weathered Tan Brick Wall</option>
+            <option value="wood">Weathered Wood Pole</option>
           </select>
           <div class="source-card">
             <img id="source-preview" src="${sourceImage}" alt="Original material source photograph" />
@@ -150,6 +155,7 @@ function configureBaseTexture(texture) {
 const textureLibrary = {
   concrete: configureBaseTexture(textureLoader.load(concreteImage, () => loadingState.classList.add('is-hidden'))),
   brick: configureBaseTexture(textureLoader.load(brickImage)),
+  wood: configureBaseTexture(textureLoader.load(woodImage)),
 };
 let activeTexture = textureLibrary[activeMaterialKey];
 

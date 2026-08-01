@@ -15,6 +15,13 @@
       "category": "brick",
       "status": "prototype",
       "packagePath": "materials/brick/brick-wall-001"
+    },
+    {
+      "id": "MAT-WOOD-0001",
+      "name": "Weathered Wood Pole",
+      "category": "wood",
+      "status": "prototype",
+      "packagePath": "materials/wood/weathered-pole-001"
     }
   ]
 }

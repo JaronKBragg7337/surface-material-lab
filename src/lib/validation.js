@@ -29,6 +29,7 @@ export function validateMaterial(card, state, runtime) {
   if (state.camera === 'close-up' && !card.closeupValidated) issues.push(issue('MATISS-0011', 'closeup_not_validated', 'warning', 'Close-up material approval', 'Close-up use is not validated', ['Inspect the surface under grazing light and compare against the source.']));
   if (state.geometry === 'sphere' && !card.curvedSurfaceValidated) issues.push(issue('MATISS-0012', 'curved_surface_not_validated', 'warning', 'Curved surface approval', 'Curved surface use is not validated', ['Check stretching and switch to a world-space projection when needed.']));
   if (state.geometry === 'wall' && !card.verticalSurfaceValidated) issues.push(issue('MATISS-0013', 'vertical_surface_not_validated', 'info', 'Vertical surface approval', 'Vertical surface use is not validated', ['Validate scale and lighting on the wall test.']));
+  if (card.category === 'wood' && state.mapping !== 'triplanar') issues.push(issue('MATISS-0015', 'directional_mapping_not_validated', 'warning', 'Directional grain remains aligned on the target geometry', `Wood is currently using ${state.mapping} mapping; triplanar or world-space grain validation is still pending`, ['Add a directional/world-space mapping test before using this card on arbitrary geometry.']));
 
   issues.forEach((item) => { item.materialId = card.id; });
   const warningCount = issues.filter((item) => item.severity === 'warning' || item.severity === 'critical').length;

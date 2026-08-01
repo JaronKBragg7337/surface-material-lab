@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-WOOD-0001",
+  "status": "validation_required",
+  "testedGeometries": ["cylinder"],
+  "testedLighting": ["grazing"],
+  "testedCameras": ["medium"],
+  "knownLimitations": [
+    "Source dimensions are provisional.",
+    "Normal, roughness, and height channels are runtime estimates.",
+    "The source crop is not seamless.",
+    "Directional grain has not yet been tested with a world-space or triplanar mapping mode.",
+    "The original photograph includes a retained nail and a strong color transition."
+  ],
+  "issues": [
+    { "issueId": "MATISS-0200", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0201", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0202", "type": "missing_normal_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0203", "type": "directional_mapping_not_validated", "severity": "warning", "status": "open" }
+  ]
+}
