@@ -3,9 +3,13 @@
   "catalogId": "SRCSET-URBAN-SURFACES-001",
   "createdAt": "2026-08-01",
   "sourceType": "user_photograph",
-  "licenseStatus": "pending_user_confirmation",
+  "licenseStatus": "CC0-1.0",
   "realWorldDimensionsStatus": "unmeasured",
-  "intakePath": "materials/intake/urban-surface-set-001/originals",
+  "intakePath": "materials/intake",
+  "sourceSets": [
+    "materials/intake/urban-surface-set-001/originals",
+    "materials/intake/urban-surface-set-002/originals"
+  ],
   "sources": [
     { "id": "SRC-CONCRETE-0001", "file": "01-concrete-slab.jpg", "candidateCategories": ["concrete"], "notes": ["Fine aggregate slab", "Contains visible joint at top edge", "Promoted to MAT-CONCRETE-0002"] },
     { "id": "SRC-WOOD-0001", "file": "02-weathered-wood.jpg", "candidateCategories": ["wood", "painted_wood"], "notes": ["Strong vertical grain", "Brick and asphalt background present", "Promoted to MAT-WOOD-0001"] },
@@ -16,6 +20,14 @@
     { "id": "SRC-CONCRETE-0004", "file": "07-scored-concrete-pavers.jpg", "candidateCategories": ["concrete", "paving"], "notes": ["Repeated slab grid", "Useful for scale and seam testing", "Promoted to MAT-CONCRETE-0005"] },
     { "id": "SRC-BRICK-0001", "file": "08-red-brick-pavers.jpg", "candidateCategories": ["brick", "paving"], "notes": ["Red and gray brick paver field", "Strong sun/shadow and camera shadow present", "Promoted to MAT-BRICK-0002 with limitations"] },
     { "id": "SRC-BRICK-0002", "file": "09-brick-wall.jpg", "candidateCategories": ["brick", "masonry"], "notes": ["Repeated tan brick and mortar", "Promoted to MAT-BRICK-0001"] },
-    { "id": "SRC-BRICK-0003", "file": "10-rough-brick-pavers.jpg", "candidateCategories": ["brick", "stone", "masonry"], "notes": ["Strong macro relief", "Dark joint network is part of the source", "Promoted to MAT-BRICK-0003"] }
+    { "id": "SRC-BRICK-0003", "file": "10-rough-brick-pavers.jpg", "candidateCategories": ["brick", "stone", "masonry"], "notes": ["Strong macro relief", "Dark joint network is part of the source", "Promoted to MAT-BRICK-0003"] },
+    { "id": "SRC-ASPHALT-0001", "file": "01-dark-asphalt.jpg", "set": "urban-surface-set-002", "candidateCategories": ["asphalt", "road"], "notes": ["Dark weathered asphalt", "Promoted to MAT-ASPHALT-0001"] },
+    { "id": "SRC-ASPHALT-0002", "file": "02-parking-lot-asphalt.jpg", "set": "urban-surface-set-002", "candidateCategories": ["asphalt", "parking_lot"], "notes": ["Painted line and vehicles provide context", "Runtime crop isolates asphalt", "Promoted to MAT-ASPHALT-0002"] },
+    { "id": "SRC-ASPHALT-0003", "file": "03-coarse-asphalt-closeup.jpg", "set": "urban-surface-set-002", "candidateCategories": ["asphalt", "aggregate"], "notes": ["Close-up coarse aggregate", "Small organic debris retained and recorded", "Promoted to MAT-ASPHALT-0003"] },
+    { "id": "SRC-VEGETATION-0001", "file": "04-broadleaf.jpg", "set": "urban-surface-set-002", "candidateCategories": ["vegetation", "leaf"], "notes": ["Silver-green leaf with visible veins", "Runtime crop emphasizes a broadleaf", "Promoted to MAT-VEGETATION-0001"] },
+    { "id": "SRC-FABRIC-0001", "file": "05-gray-loop-carpet.jpg", "set": "urban-surface-set-002", "candidateCategories": ["fabric", "carpet"], "notes": ["Dense loop-pile fiber", "Promoted to MAT-FABRIC-0001"] },
+    { "id": "SRC-STONE-0001", "file": "06-pale-pavers-wide.jpg", "set": "urban-surface-set-002", "candidateCategories": ["stone", "concrete", "paving"], "notes": ["Wide capture of pale weathered pavers", "Alternate source for MAT-STONE-0001"] },
+    { "id": "SRC-STONE-0002", "file": "07-pale-pavers-close.jpg", "set": "urban-surface-set-002", "candidateCategories": ["stone", "concrete", "paving"], "notes": ["Closer capture of the same pale paver surface", "Runtime map source for MAT-STONE-0001"] },
+    { "id": "SRC-FABRIC-0002", "file": "08-gray-crumpled-textile.jpg", "set": "urban-surface-set-002", "candidateCategories": ["fabric", "textile"], "notes": ["Broad photographed folds", "Bench and carpet context removed from runtime crop", "Promoted to MAT-FABRIC-0002"] }
   ]
 }

@@ -15,8 +15,8 @@
       "parameters": { "outputWidth": 2048, "outputHeight": 2048 }
     }
   ],
-  "license": "provisional_user_authored",
-  "licenseStatus": "pending_user_confirmation",
+  "license": "CC0-1.0",
+  "licenseStatus": "confirmed_by_user",
   "realWorldDimensions": {
     "widthMeters": 1,
     "heightMeters": 1,

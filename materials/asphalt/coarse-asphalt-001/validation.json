@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-ASPHALT-0003",
+  "status": "validation_required",
+  "testedGeometries": ["large-plane", "sidewalk"],
+  "testedLighting": ["neutral", "overcast", "sunlight", "grazing"],
+  "testedCameras": ["close-up", "medium", "far"],
+  "approvedUseDistances": [],
+  "knownLimitations": ["Provisional source scale", "Estimated derived maps", "Non-seamless source crop", "Small organic debris retained in the source"],
+  "issues": [
+    { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0018", "type": "macro_debris_retained", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+  ]
+}

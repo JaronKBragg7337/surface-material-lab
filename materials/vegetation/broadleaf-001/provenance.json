@@ -1,0 +1,12 @@
+{
+  "materialId": "MAT-VEGETATION-0001",
+  "sourceType": "user_photograph",
+  "sourcePhoto": "4-Photo-4.jpg",
+  "originalFile": "source/original-photo.jpg",
+  "processedFile": "source/crop-source.jpg",
+  "processing": [{ "operation": "context_crop", "parameters": { "x": 590, "y": 900, "width": 1700, "height": 1700, "emphasis": "central broadleaf" } }, { "operation": "resize", "parameters": { "outputWidth": 2048, "outputHeight": 2048 } }],
+  "license": "CC0-1.0",
+  "licenseStatus": "confirmed_by_user",
+  "realWorldDimensions": { "widthMeters": 1, "heightMeters": 1, "status": "unverified" },
+  "notes": ["Original foliage context is preserved.", "The runtime crop emphasizes a broad leaf but retains neighboring leaf edges; no opacity map is authored."]
+}

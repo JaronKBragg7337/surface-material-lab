@@ -78,6 +78,55 @@
       "category": "brick",
       "status": "prototype",
       "packagePath": "materials/brick/rough-brick-pavers-001"
+    },
+    {
+      "id": "MAT-ASPHALT-0001",
+      "name": "Dark Weathered Asphalt",
+      "category": "asphalt",
+      "status": "prototype",
+      "packagePath": "materials/asphalt/dark-asphalt-001"
+    },
+    {
+      "id": "MAT-ASPHALT-0002",
+      "name": "Parking Lot Asphalt",
+      "category": "asphalt",
+      "status": "prototype",
+      "packagePath": "materials/asphalt/parking-lot-asphalt-001"
+    },
+    {
+      "id": "MAT-ASPHALT-0003",
+      "name": "Coarse Asphalt Aggregate",
+      "category": "asphalt",
+      "status": "prototype",
+      "packagePath": "materials/asphalt/coarse-asphalt-001"
+    },
+    {
+      "id": "MAT-VEGETATION-0001",
+      "name": "Silver-Green Broadleaf",
+      "category": "vegetation",
+      "status": "prototype",
+      "packagePath": "materials/vegetation/broadleaf-001"
+    },
+    {
+      "id": "MAT-FABRIC-0001",
+      "name": "Gray Loop Carpet",
+      "category": "fabric",
+      "status": "prototype",
+      "packagePath": "materials/fabric/loop-carpet-001"
+    },
+    {
+      "id": "MAT-STONE-0001",
+      "name": "Pale Weathered Pavers",
+      "category": "stone",
+      "status": "prototype",
+      "packagePath": "materials/stone/pale-pavers-001"
+    },
+    {
+      "id": "MAT-FABRIC-0002",
+      "name": "Crumpled Gray Textile",
+      "category": "fabric",
+      "status": "prototype",
+      "packagePath": "materials/fabric/crumpled-gray-textile-001"
     }
   ]
 }

@@ -17,7 +17,8 @@ export const concretePebbleCard = {
   provenance: {
     creator: 'user-provided photograph',
     collectionMethod: 'phone photograph',
-    note: 'License and dimensions are provisional until confirmed by the owner.',
+    licenseStatus: 'confirmed_by_user',
+    note: 'The owner has released this user-authored source under CC0-1.0; dimensions remain provisional.',
   },
   realWorldWidthMeters: 1,
   realWorldHeightMeters: 1,

@@ -5,8 +5,8 @@
   "originalFile": "source/original-photo.jpg",
   "processedFile": "source/crop-source.jpg",
   "processing": [{ "operation": "crop", "parameters": { "x": 340, "y": 450, "width": 2200, "height": 2200 } }, { "operation": "resize", "parameters": { "outputWidth": 2048, "outputHeight": 2048 } }],
-  "license": "provisional_user_authored",
-  "licenseStatus": "pending_user_confirmation",
+  "license": "CC0-1.0",
+  "licenseStatus": "confirmed_by_user",
   "realWorldDimensions": { "widthMeters": 1, "heightMeters": 1, "status": "unverified" },
   "notes": ["Original source is preserved.", "Sun and camera shadow variation are retained and should be flagged during close-up validation."]
 }

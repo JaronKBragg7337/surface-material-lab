@@ -1,0 +1,12 @@
+{
+  "materialId": "MAT-ASPHALT-0002",
+  "sourceType": "user_photograph",
+  "sourcePhoto": "2-Photo-2.jpg",
+  "originalFile": "source/original-photo.jpg",
+  "processedFile": "source/crop-source.jpg",
+  "processing": [{ "operation": "context_crop", "parameters": { "x": 360, "y": 400, "width": 560, "height": 560, "removed": ["painted line", "vehicles"] } }, { "operation": "resize", "parameters": { "outputWidth": 2048, "outputHeight": 2048 } }],
+  "license": "CC0-1.0",
+  "licenseStatus": "confirmed_by_user",
+  "realWorldDimensions": { "widthMeters": 1, "heightMeters": 1, "status": "unverified" },
+  "notes": ["Original context is preserved.", "The runtime crop isolates the dark asphalt field rather than treating the painted road marking as part of the material."]
+}

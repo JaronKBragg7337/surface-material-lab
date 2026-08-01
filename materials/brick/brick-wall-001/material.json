@@ -10,13 +10,13 @@
     "source/original-photo.jpg",
     "source/crop-source.jpg"
   ],
-  "license": "provisional_user_authored",
+  "license": "CC0-1.0",
   "provenance": {
     "creator": "user-provided photograph",
     "collectionMethod": "phone photograph",
     "sourcePhoto": "9-Photo-9.jpg",
-    "licenseStatus": "pending_user_confirmation",
-    "note": "The source is preserved, but public asset licensing is not yet confirmed."
+    "licenseStatus": "confirmed_by_user",
+    "note": "The source is preserved under CC0-1.0 at the owner's direction; dimensions remain provisional."
   },
   "realWorldWidthMeters": 1,
   "realWorldHeightMeters": 1,

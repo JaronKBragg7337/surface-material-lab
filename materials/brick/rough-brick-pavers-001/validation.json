@@ -5,7 +5,7 @@
   "testedGeometries": ["large-plane"],
   "testedLighting": ["grazing"],
   "testedCameras": ["medium"],
-  "knownLimitations": ["Unverified physical scale", "Pending license confirmation", "Strong joint network and relief", "Estimated derived maps"],
+  "knownLimitations": ["Unverified physical scale", "CC0-1.0 owner-directed source", "Strong joint network and relief", "Estimated derived maps"],
   "issues": [
     { "issueId": "MATISS-1000", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
     { "issueId": "MATISS-1001", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },

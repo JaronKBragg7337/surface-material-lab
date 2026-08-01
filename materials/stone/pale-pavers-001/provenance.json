@@ -1,0 +1,14 @@
+{
+  "materialId": "MAT-STONE-0001",
+  "sourceType": "user_photograph",
+  "sourcePhoto": "6-Photo-6.jpg",
+  "sourcePhotos": ["6-Photo-6.jpg", "7-Photo-6.jpg"],
+  "originalFile": "source/original-photo.jpg",
+  "alternateFile": "source/alternate-photo.jpg",
+  "processedFile": "source/crop-source.jpg",
+  "processing": [{ "operation": "center_crop", "parameters": { "sourceForMap": "7-Photo-6.jpg", "width": 2880, "height": 2880 } }, { "operation": "resize", "parameters": { "outputWidth": 2048, "outputHeight": 2048 } }],
+  "license": "CC0-1.0",
+  "licenseStatus": "confirmed_by_user",
+  "realWorldDimensions": { "widthMeters": 1, "heightMeters": 1, "status": "unverified" },
+  "notes": ["Two captures of the same pale paver surface are preserved.", "The runtime map uses the closer second capture; the captures have not been geometrically aligned or blended."]
+}

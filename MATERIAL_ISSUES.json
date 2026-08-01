@@ -8,65 +8,91 @@
       { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-BRICK-0001", "issues": [
-      { "issueId": "MATISS-0014", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
       { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
       { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
       { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-WOOD-0001", "issues": [
-      { "issueId": "MATISS-0014", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
       { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
       { "issueId": "MATISS-0015", "type": "directional_mapping_not_validated", "severity": "warning", "status": "open" },
       { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
       { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-CONCRETE-0002", "issues": [
-      { "issueId": "MATISS-0300", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0301", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0302", "type": "missing_normal_map", "severity": "info", "status": "open" },
-      { "issueId": "MATISS-0303", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-ROCK-0001", "issues": [
-      { "issueId": "MATISS-0400", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0401", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0402", "type": "mixed_ground_source", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0403", "type": "missing_normal_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0016", "type": "mixed_ground_source", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-CONCRETE-0003", "issues": [
-      { "issueId": "MATISS-0500", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0501", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0502", "type": "joint_alignment_not_validated", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0503", "type": "missing_normal_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-CONCRETE-0004", "issues": [
-      { "issueId": "MATISS-0600", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0601", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0602", "type": "joint_alignment_not_validated", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0603", "type": "missing_normal_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-BARK-0001", "issues": [
-      { "issueId": "MATISS-0700", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0701", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0702", "type": "depth_of_field_contamination", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0703", "type": "missing_normal_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0017", "type": "depth_of_field_contamination", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-CONCRETE-0005", "issues": [
-      { "issueId": "MATISS-0800", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0801", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0802", "type": "visible_grid_repetition", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0803", "type": "missing_normal_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0007", "type": "visible_grid_repetition", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-BRICK-0002", "issues": [
-      { "issueId": "MATISS-0900", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0901", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0902", "type": "lighting_contamination", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-0903", "type": "missing_normal_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
     ] },
     { "materialId": "MAT-BRICK-0003", "issues": [
-      { "issueId": "MATISS-1000", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-1001", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-1002", "type": "strong_joint_repetition", "severity": "warning", "status": "open" },
-      { "issueId": "MATISS-1003", "type": "missing_normal_map", "severity": "info", "status": "open" }
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0007", "type": "strong_joint_repetition", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
+    ] },
+    { "materialId": "MAT-ASPHALT-0001", "issues": [
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0007", "type": "visible_repetition", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+    ] },
+    { "materialId": "MAT-ASPHALT-0002", "issues": [
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+    ] },
+    { "materialId": "MAT-ASPHALT-0003", "issues": [
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0018", "type": "macro_debris_retained", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+    ] },
+    { "materialId": "MAT-VEGETATION-0001", "issues": [
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0019", "type": "leaf_opacity_not_authored", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
+    ] },
+    { "materialId": "MAT-FABRIC-0001", "issues": [
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+    ] },
+    { "materialId": "MAT-STONE-0001", "issues": [
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0021", "type": "alternate_source_not_blended", "severity": "info", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
+    ] },
+    { "materialId": "MAT-FABRIC-0002", "issues": [
+      { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0020", "type": "macro_fold_source", "severity": "warning", "status": "open" },
+      { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" }
     ] }
   ]
 }

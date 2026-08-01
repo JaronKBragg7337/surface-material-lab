@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-ASPHALT-0001",
+  "status": "validation_required",
+  "testedGeometries": ["large-plane", "sidewalk", "wall"],
+  "testedLighting": ["neutral", "overcast", "sunlight", "grazing"],
+  "testedCameras": ["close-up", "medium", "far"],
+  "approvedUseDistances": [],
+  "knownLimitations": ["Provisional source scale", "Estimated derived maps", "Non-seamless source crop", "Large-surface repetition requires anti-tiling review"],
+  "issues": [
+    { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0007", "type": "visible_repetition", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+  ]
+}

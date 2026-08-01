@@ -11,6 +11,7 @@ import { concretePebbleCard, materialCardForExport, materialDefaults } from './m
 import { brickWallCard, brickWallDefaults } from './materials/brickWall.js';
 import { weatheredWoodCard, weatheredWoodDefaults } from './materials/weatheredWood.js';
 import { urbanBatchMaterials } from './materials/urbanBatch.js';
+import { urbanBatch002Materials } from './materials/urbanBatch002.js';
 import { createDerivedMaps, createMacroTexture } from './lib/derivedMaps.js';
 import { downloadBlob, downloadDataUrl, downloadJson, downloadText } from './lib/downloads.js';
 import { validateMaterial } from './lib/validation.js';
@@ -22,6 +23,7 @@ const materialLibrary = {
   brick: { key: 'brick', card: brickWallCard, defaults: brickWallDefaults, baseColorUrl: brickImage, sourceUrl: brickSourceImage, name: 'Weathered Tan Brick Wall' },
   wood: { key: 'wood', card: weatheredWoodCard, defaults: weatheredWoodDefaults, baseColorUrl: woodImage, sourceUrl: woodSourceImage, name: 'Weathered Wood Pole' },
   ...urbanBatchMaterials,
+  ...urbanBatch002Materials,
 };
 let activeMaterialKey = 'concrete';
 let activeMaterial = materialLibrary[activeMaterialKey];
@@ -36,7 +38,7 @@ app.innerHTML = `
       <div class="brand-lockup">
         <div class="brand-mark">SM</div>
         <div>
-          <p class="eyebrow">SURFACE LIBRARY / URBAN SOURCE BATCH 001</p>
+          <p class="eyebrow">SURFACE LIBRARY / USER CC0 SOURCE BATCHES</p>
           <h1>Surface Material Lab</h1>
         </div>
       </div>

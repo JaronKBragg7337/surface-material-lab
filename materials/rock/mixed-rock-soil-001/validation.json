@@ -5,7 +5,7 @@
   "testedGeometries": ["large-plane"],
   "testedLighting": ["overcast"],
   "testedCameras": ["medium"],
-  "knownLimitations": ["Unverified physical scale", "Pending license confirmation", "Mixed soil and organic content", "Low tileability expectation", "Estimated derived maps"],
+  "knownLimitations": ["Unverified physical scale", "CC0-1.0 owner-directed source", "Mixed soil and organic content", "Low tileability expectation", "Estimated derived maps"],
   "issues": [
     { "issueId": "MATISS-0400", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
     { "issueId": "MATISS-0401", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },

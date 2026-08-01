@@ -14,11 +14,12 @@
 
 ## Current follow-up slice
 
-- preserve the ten-photo urban surface intake set
-- add a searchable-in-principle material library with the complete current eleven-card batch
+- preserve the first ten-photo urban surface intake set and the eight-photo second intake set
+- add a searchable-in-principle material library with the complete current eighteen-card batch
 - promote brick to `MAT-BRICK-0001` while keeping scale and licensing provisional
 - promote wood to `MAT-WOOD-0001` with directional-grain validation notes
 - promote the remaining concrete, rock, bark, and brick-paver sources with explicit limitations
+- add asphalt, stone, vegetation, and fabric source cards with explicit context-crop and scale limitations
 
 ## Next
 

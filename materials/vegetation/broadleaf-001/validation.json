@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-VEGETATION-0001",
+  "status": "validation_required",
+  "testedGeometries": ["wall", "cube", "sphere"],
+  "testedLighting": ["neutral", "overcast", "sunlight", "grazing"],
+  "testedCameras": ["close-up", "medium", "far"],
+  "approvedUseDistances": [],
+  "knownLimitations": ["Provisional source scale", "Estimated derived maps", "No opacity/cutout map", "Neighboring foliage remains in the crop"],
+  "issues": [
+    { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0019", "type": "leaf_opacity_not_authored", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+  ]
+}

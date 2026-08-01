@@ -5,7 +5,7 @@
   "testedGeometries": ["sidewalk"],
   "testedLighting": ["sunlight"],
   "testedCameras": ["medium"],
-  "knownLimitations": ["Unverified physical scale", "Pending license confirmation", "Estimated derived maps", "Non-seamless source"],
+  "knownLimitations": ["Unverified physical scale", "CC0-1.0 owner-directed source", "Estimated derived maps", "Non-seamless source"],
   "issues": [
     { "issueId": "MATISS-0300", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
     { "issueId": "MATISS-0301", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },

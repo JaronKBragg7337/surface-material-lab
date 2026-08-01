@@ -5,7 +5,7 @@
   "testedGeometries": ["cylinder"],
   "testedLighting": ["grazing"],
   "testedCameras": ["medium"],
-  "knownLimitations": ["Unverified physical scale", "Pending license confirmation", "Depth of field and foliage retained", "Not a proven seamless tile", "Estimated derived maps"],
+  "knownLimitations": ["Unverified physical scale", "CC0-1.0 owner-directed source", "Depth of field and foliage retained", "Not a proven seamless tile", "Estimated derived maps"],
   "issues": [
     { "issueId": "MATISS-0700", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
     { "issueId": "MATISS-0701", "type": "license_confirmation_pending", "severity": "warning", "status": "open" },

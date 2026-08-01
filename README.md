@@ -8,7 +8,7 @@ The project is intentionally independent from game and cinematic repositories. I
 
 ## Current vertical slice
 
-The current batch now contains eleven reusable cards spanning concrete, brick, wood, rock/soil, and bark. The wood card adds directional grain and cylindrical inspection; the rock and bark cards are intentionally marked as limited organic/ground references rather than silently promoted as seamless tiles. All are based on supplied user photographs; the lab keeps source and processed maps separate.
+The current library contains eighteen reusable cards spanning concrete, brick, wood, rock/soil, bark, asphalt, stone, vegetation, and fabric. The newer batch adds three asphalt scales, a broadleaf study, loop-pile carpet, pale pavers, and a folded textile. All supplied photographs are released under CC0-1.0 at the owner's direction; the lab keeps original and processed maps separate and records limitations instead of silently calling every crop seamless.
 
 The live prototype currently supports:
 
@@ -22,7 +22,7 @@ The live prototype currently supports:
 - structured validation issues, runtime state JSON, screenshot capture, and ZIP package export
 - touch-friendly controls and low/medium/high preview quality
 
-The source dimensions for the current cards are explicitly provisional. The original concrete card carries a provisional CC0 declaration; the newer supplied batch remains pending license confirmation. Original and processed source files remain preserved.
+The source dimensions for the current cards are explicitly provisional. The supplied source photographs are CC0-1.0 at the owner's direction, while original and processed source files remain preserved separately.
 
 ## Repository layout
 
@@ -34,7 +34,8 @@ materials/concrete/concrete-pebble-001/
   previews/     future approved preview captures
   material.json provenance.json validation.json README.md
 materials/brick/brick-wall-001/  second architecture test material
-materials/intake/urban-surface-set-001/  preserved source-photo intake set
+materials/intake/urban-surface-set-001/  first preserved source-photo intake set
+materials/intake/urban-surface-set-002/  asphalt, vegetation, stone, and fabric intake set
 schemas/        JSON Schema for material cards
 src/materials/  runtime material-card definitions
 src/lib/        derived maps, downloads, and validation helpers
@@ -92,4 +93,4 @@ Every push to `main` builds and deploys the Vite site through GitHub Pages. The 
 
 ## License
 
-Source code is MIT. The supplied user-authored material source is marked CC0-1.0 provisionally at the owner’s direction. Any future third-party source must retain its actual license and provenance.
+Source code is MIT. The supplied user-authored material source is CC0-1.0 at the owner’s direction. Any future third-party source must retain its actual license and provenance.

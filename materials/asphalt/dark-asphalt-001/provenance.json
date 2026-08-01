@@ -1,0 +1,12 @@
+{
+  "materialId": "MAT-ASPHALT-0001",
+  "sourceType": "user_photograph",
+  "sourcePhoto": "1-Photo-1.jpg",
+  "originalFile": "source/original-photo.jpg",
+  "processedFile": "source/crop-source.jpg",
+  "processing": [{ "operation": "center_crop", "parameters": { "x": 0, "y": 480, "width": 2880, "height": 2880 } }, { "operation": "resize", "parameters": { "outputWidth": 2048, "outputHeight": 2048 } }],
+  "license": "CC0-1.0",
+  "licenseStatus": "confirmed_by_user",
+  "realWorldDimensions": { "widthMeters": 1, "heightMeters": 1, "status": "unverified" },
+  "notes": ["Original source is preserved.", "The crop keeps the asphalt field and removes portrait framing while retaining natural surface variation."]
+}

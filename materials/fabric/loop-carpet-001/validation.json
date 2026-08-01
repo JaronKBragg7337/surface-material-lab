@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "0.1.0",
+  "materialId": "MAT-FABRIC-0001",
+  "status": "validation_required",
+  "testedGeometries": ["large-plane", "cube", "sphere"],
+  "testedLighting": ["neutral", "overcast", "sunlight", "grazing"],
+  "testedCameras": ["close-up", "medium", "far"],
+  "approvedUseDistances": [],
+  "knownLimitations": ["Provisional source scale", "Estimated derived maps", "Fiber direction and tileability need close-up validation"],
+  "issues": [
+    { "issueId": "MATISS-0006", "type": "unverified_physical_scale", "severity": "warning", "status": "open" },
+    { "issueId": "MATISS-0003", "type": "missing_normal_map", "severity": "info", "status": "open" },
+    { "issueId": "MATISS-0004", "type": "missing_roughness_map", "severity": "info", "status": "open" }
+  ]
+}
